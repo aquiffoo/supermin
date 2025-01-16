@@ -46,6 +46,8 @@ process sort(integer arr list, integer n) {
         }
         n = n sub 1;
     } until (!swapped);
+
+    done;
 }
 
 main {
