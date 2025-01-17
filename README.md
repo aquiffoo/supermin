@@ -1,5 +1,9 @@
 # supermin
 A very simple Cello ahh extension for C
+
+> **Note:**
+> I'm aware that `free_later` shows squiggly red lines in VSCode with the C/C++ extension. This will be fixed through the supermin extension coming soon.
+
 ## Syntax
 Hello World example
 ```c

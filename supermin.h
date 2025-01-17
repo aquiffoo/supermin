@@ -51,7 +51,9 @@ int println(const char *format, ...) {
 }
 #define repeat(count)   for (int i = 0; i < (count); i++)
 #define allocate        alloc
-#define free            free
+void release(void *ptr) {
+    free(ptr);
+}
 #define copystr         strcpy
 #define concat          strcat(dest,src)
 #define alloc_or_exit(type, size)               \
@@ -61,11 +63,21 @@ int println(const char *format, ...) {
         ptr;                                    \
     })
 
-
 void exiterr(){
     printf("Memory allocation failed!\n");
     exit(1);
 }
+
+void free_cleanup(void **ptr) {
+    if (*ptr) {
+        free(*ptr);
+        *ptr = NULL;
+    }
+}
+
+#define free_later(ptr) \
+    __attribute__((cleanup(free_cleanup))) void *free_later_var = (ptr)
+
 #define obj(name)               struct name
 #define member(type, name)      type name
 #define makeObj(type, varname)  type varName

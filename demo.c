@@ -1,4 +1,4 @@
-#include <supermin.h>
+#include "supermin.h"
 
 main {
     let integer age;

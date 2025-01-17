@@ -1,4 +1,4 @@
-#include <supermin.h>
+#include "supermin.h"
 
 process sort(integer arr list, integer n) {
     integer swapped;
