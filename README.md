@@ -7,7 +7,7 @@ A very simple Cello ahh extension for C
 ## Syntax
 Hello World example
 ```c
-#include <supermin.h>
+#include "supermin.h"
 
 main {
     println("hello world!");
@@ -17,7 +17,7 @@ main {
 
 Age verification example
 ```c
-#include <supermin.h>
+#include "supermin.h"
 
 main {
     let integer age;
@@ -29,12 +29,14 @@ main {
     } else {
         println("welcome!");
     }
+
+    done;
 }
 ```
 
 Sorted array example
 ```c
-#include <supermin.h>
+#include "supermin.h"
 
 process sort(integer arr list, integer n) {
     integer swapped;
@@ -78,4 +80,21 @@ main {
     free(arr);
     done;
 }
+```
+
+Automatic memory freeing example
+```c
+#include "supermin.h"
+
+main {
+    integer *arr = alloc_or_exit(integer, 10);
+    free_later(arr);
+
+    arr[0] = 34;
+    arr[1] = 35;
+    println("%d", arr[0] + arr[1]);
+
+    done;
+}
+
 ```
