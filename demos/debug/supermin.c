@@ -1,10 +1,9 @@
+#define debugging
 #include "supermin.h"
-
-sm_enable_debug();
 
 main {
     debug {
-        println("ay");
+        println("[DEBUG]: debug message.");
     }
 
     done;
