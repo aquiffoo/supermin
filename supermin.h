@@ -83,4 +83,7 @@ void free_cleanup(void **ptr) {
 #define makeObj(type, varname)  type varName
 #define accessMember(obj, mem)  obj.mem
 
+#define debug if (SUPERMIN_DEBUG)
+#define sm_emable_debug() int SUPERMIN_DEBUG = 1
+
 #endif
