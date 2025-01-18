@@ -9,7 +9,6 @@
 /* definitions */
 #define print           printf
 #define integer         int
-#define string          []char
 #define take            scanf
 #define until           while
 #define add             +
@@ -36,8 +35,10 @@
 #define do              do
 #define moreEq          >=
 #define lessEq          <=
-#define main            int main(integer argc, char **argv)
 #define nonassignable   void
+
+typedef char* string;
+
 // shoutout to giose for this idea
 #define _range(varname, number) (int varname=0; varname<number; ++varname)
 // end shoutout
@@ -83,7 +84,20 @@ void free_cleanup(void **ptr) {
 #define makeObj(type, varname)  type varName
 #define accessMember(obj, mem)  obj.mem
 
+int SUPERMIN_DEBUG = 0;
 #define debug if (SUPERMIN_DEBUG)
-#define sm_enable_debug() int SUPERMIN_DEBUG = 1
+#define sm_enable_debug() SUPERMIN_DEBUG = 1
+
+integer _sm_main(integer argc, string *argv);
+
+#define main                                                \
+    int main(int argc, string *argv) {                      \
+        debug {                                             \
+            println("[INFO]: Supermin debug mode enabled"); \
+        }                                                   \
+        return _sm_main(argc, argv);                        \
+    }                                                       \
+    integer _sm_main(integer argc, string *argv)    
+
 
 #endif
