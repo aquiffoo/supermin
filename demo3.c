@@ -22,6 +22,7 @@ main {
     take("%d", &n);
 
     integer *arr = alloc_or_exit(integer, n);
+    free_later(arr);
     println("Enter %d elements: ", n);
 
     integer i;
@@ -33,10 +34,9 @@ main {
     println("Sorted array:");
 
     repeat(n) {
-        print("%d", arr[i]);
+        print("%d, ", arr[i]);
     }
     println("");
 
-    free(arr);
     done;
 }
