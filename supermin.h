@@ -84,6 +84,6 @@ void free_cleanup(void **ptr) {
 #define accessMember(obj, mem)  obj.mem
 
 #define debug if (SUPERMIN_DEBUG)
-#define sm_emable_debug() int SUPERMIN_DEBUG = 1
+#define sm_enable_debug() int SUPERMIN_DEBUG = 1
 
 #endif
