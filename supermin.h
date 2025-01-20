@@ -84,6 +84,8 @@ void free_cleanup(void **ptr) {
 #define makeObj(type, varname)  type varName
 #define accessMember(obj, mem)  obj.mem
 
+#define salloc(size) (char [size]){0}
+
 #ifdef debugging
     #define debug if (1)
 #else
